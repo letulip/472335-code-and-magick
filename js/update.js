@@ -16,9 +16,15 @@ function getWizardHeight() {
 }
 
 function getWizardX(width) {
-  return ((width - wizardWidth) / 2);
+  if (width) {
+    return ((width - wizardWidth) / 2);
+  }
+  return 'Need width';
 }
 
 function getWizardY(height) {
-  return (height * 0,67);
+  if (height) {
+    return (height * 0,67);
+  }
+  return 'Need height';
 }
