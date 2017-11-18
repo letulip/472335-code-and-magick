@@ -25,25 +25,19 @@ window.renderStatistics = function (ctx, names, times) {
     }
   }
 
-  // var histogramWidth = 150;
-  // var step = histogramWidth / (max - 0);
-  // var barHeigth = 20;
-  // var indent = 40;
-  // var initialX = 120;
-  // var initialY = 80;
-  // var lineHeight = 15;
-
   var histogramHeight = 150;
   var step = histogramHeight / (max - 0);
   var barWidth = 40;
-  var indent = 50;
+  var indent = 90;
   var initialX = 120;
   var initialY = 250;
   var lineHeight = 15;
 
   for (var j = 0; j < times.length; j++) {
+    ctx.fillStyle = 'black';
     ctx.fillText(names[j], initialX + indent * j, initialY + lineHeight);
-    ctx.fillRect(initialX + indent * j, initialY, barWidth, -times[j] * step);
     ctx.fillText(maxResult[j], initialX + indent * j, initialY - histogramHeight - lineHeight);
+    ctx.fillStyle = 'rgba(255, 0, 0, 1)';
+    ctx.fillRect(initialX + indent * j, initialY, barWidth, -times[j] * step);
   }
 };
