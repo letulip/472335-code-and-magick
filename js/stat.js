@@ -37,8 +37,8 @@ window.renderStatistics = function (ctx, names, times) {
     ctx.fillStyle = 'black';
     ctx.fillText(names[j], initialX + indent * j, initialY + lineHeight);
     ctx.fillText(maxResult[j], initialX + indent * j, initialY - histogramHeight - lineHeight);
-    var fillColor = Math.random();
-    ctx.fillStyle = 'rgba(0, 0, 255, ' + fillColor + ')';
+    var fillColor = 'rgba(0, 0, 255, ' + Math.random() + ')';
+    ctx.fillStyle = fillColor;
     if (names[j] === 'Вы') {
       ctx.fillStyle = 'rgba(255, 0, 0, 1)';
     }
