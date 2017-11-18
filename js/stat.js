@@ -9,16 +9,28 @@ window.renderStatistics = function (ctx, names, times) {
   var cloudShade = 'rgba(0, 0, 0, 0.7)';
   var textColor = 'black';
   var playerColor = 'rgba(255, 0, 0, 1)';
-  var npcColor = 'rgba(0, 0, 255, ' + Math.random() + ')';
-  ctx.fillStyle = cloudShade;
-  ctx.fillRect(windowSlideX + 10, windowSlideY + 10, windowWidth, windowHeight);
-  ctx.fillStyle = cloudColor;
-  ctx.fillRect(windowSlideX, windowSlideY, windowWidth, windowHeight);
+  var fontProperties = '16px PT Mono';
 
-  ctx.fillStyle = textColor;
-  ctx.font = '16px PT Mono';
-  ctx.fillText('Ура вы победили!', windowSlideX + 20, windowSlideY + 30);
-  ctx.fillText('Список результатов:', windowSlideX + 20, windowSlideY + 50);
+  function renderCloud(color, posX, posY, width, height) {
+    ctx.fillStyle = color;
+    ctx.fillRect(posX, posY, width, height);
+  }
+
+  function renderText(color, font, text, posX, posY) {
+    ctx.fillStyle = color;
+    ctx.font = font;
+    ctx.fillText(text, posX, posY);
+  }
+
+  function renderChart(color, posX, posY, width, height) {
+    ctx.fillStyle = color;
+    ctx.fillRect(posX, posY, width, height);
+  }
+
+  renderCloud(cloudShade, windowSlideX + 10, windowSlideY + 10, windowWidth, windowHeight);
+  renderCloud(cloudColor, windowSlideX, windowSlideY, windowWidth, windowHeight);
+  renderText(textColor, fontProperties, 'Ура вы победили!', windowSlideX + 20, windowSlideY + 30);
+  renderText(textColor, fontProperties, 'Список результатов:', windowSlideX + 20, windowSlideY + 50);
 
   var max = -1;
   var maxResult = [];
@@ -40,13 +52,12 @@ window.renderStatistics = function (ctx, names, times) {
   var lineHeight = 15;
 
   for (var j = 0; j < times.length; j++) {
-    ctx.fillStyle = textColor;
-    ctx.fillText(names[j], initialX + indent * j, initialY + lineHeight);
-    ctx.fillText(maxResult[j], initialX + indent * j, initialY - histogramHeight - lineHeight);
-    ctx.fillStyle = npcColor;
+    renderText(textColor, fontProperties, names[j], initialX + indent * j, initialY + lineHeight);
+    renderText(textColor, fontProperties, maxResult[j], initialX + indent * j, initialY - histogramHeight - lineHeight);
+    var chartColor = 'rgba(0, 0, 255, ' + Math.random() + ')';
     if (names[j] === 'Вы') {
-      ctx.fillStyle = playerColor;
+      chartColor = playerColor;
     }
-    ctx.fillRect(initialX + indent * j, initialY, barWidth, -times[j] * step);
+    renderChart(chartColor, initialX + indent * j, initialY, barWidth, -times[j] * step);
   }
 };
