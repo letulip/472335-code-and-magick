@@ -1,27 +1,28 @@
 'use strict';
 
 window.renderStatistics = function (ctx, names, times) {
-  // ctx.fillText('Hullo, canvas!');
+  var windowWidth = 420;
+  var windowHeight = 270;
+  var windowSlideX = 100;
+  var windowSlideY = 10;
   ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
-  ctx.fillRect(110, 20, 420, 270);
+  ctx.fillRect(windowSlideX + 10, windowSlideY + 10, windowWidth, windowHeight);
   ctx.fillStyle = 'white';
-  ctx.fillRect(100, 10, 420, 270);
+  ctx.fillRect(windowSlideX, windowSlideY, windowWidth, windowHeight);
 
-  ctx.fillStyle = '#000';
+  ctx.fillStyle = 'black';
   ctx.font = '16px PT Mono';
-  ctx.fillText('Ура вы победили!', 120, 40);
-  ctx.fillText('Список результатов:', 120, 60);
+  ctx.fillText('Ура вы победили!', windowSlideX + 20, windowSlideY + 30);
+  ctx.fillText('Список результатов:', windowSlideX + 20, windowSlideY + 50);
 
   var max = -1;
   var maxResult = [];
-  var maxIndex;
 
   for (var i = 0; i < times.length; i++) {
     var time = times[i];
     maxResult.push(Math.floor(time));
     if (time > max) {
       max = time;
-      maxIndex = i;
     }
   }
 
