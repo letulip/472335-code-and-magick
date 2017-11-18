@@ -5,12 +5,17 @@ window.renderStatistics = function (ctx, names, times) {
   var windowHeight = 270;
   var windowSlideX = 100;
   var windowSlideY = 10;
-  ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
+  var cloudColor = 'white';
+  var cloudShade = 'rgba(0, 0, 0, 0.7)';
+  var textColor = 'black';
+  var playerColor = 'rgba(255, 0, 0, 1)';
+  var npcColor = 'rgba(0, 0, 255, ' + Math.random() + ')';
+  ctx.fillStyle = cloudShade;
   ctx.fillRect(windowSlideX + 10, windowSlideY + 10, windowWidth, windowHeight);
-  ctx.fillStyle = 'white';
+  ctx.fillStyle = cloudColor;
   ctx.fillRect(windowSlideX, windowSlideY, windowWidth, windowHeight);
 
-  ctx.fillStyle = 'black';
+  ctx.fillStyle = textColor;
   ctx.font = '16px PT Mono';
   ctx.fillText('Ура вы победили!', windowSlideX + 20, windowSlideY + 30);
   ctx.fillText('Список результатов:', windowSlideX + 20, windowSlideY + 50);
@@ -35,13 +40,12 @@ window.renderStatistics = function (ctx, names, times) {
   var lineHeight = 15;
 
   for (var j = 0; j < times.length; j++) {
-    ctx.fillStyle = 'black';
+    ctx.fillStyle = textColor;
     ctx.fillText(names[j], initialX + indent * j, initialY + lineHeight);
     ctx.fillText(maxResult[j], initialX + indent * j, initialY - histogramHeight - lineHeight);
-    var fillColor = 'rgba(0, 0, 255, ' + Math.random() + ')';
-    ctx.fillStyle = fillColor;
+    ctx.fillStyle = npcColor;
     if (names[j] === 'Вы') {
-      ctx.fillStyle = 'rgba(255, 0, 0, 1)';
+      ctx.fillStyle = playerColor;
     }
     ctx.fillRect(initialX + indent * j, initialY, barWidth, -times[j] * step);
   }
