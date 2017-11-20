@@ -58,7 +58,6 @@ window.renderStatistics = function (ctx, names, times) {
       if (names[j] === 'Вы') {
         chartColor = playerColor;
       }
-      debugger;
       renderChart(chartColor, initialX + indent * j, initialY, barWidth, -times[j] * step);
     }
   }
