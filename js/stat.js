@@ -50,7 +50,7 @@ window.renderStatistics = function (ctx, names, times) {
   }
 
   function renderCommonStatChart() {
-  var step = histogramHeight / (max - 0);
+    var step = histogramHeight / (max - 0);
     for (var j = 0; j < times.length; j++) {
       renderText(textColor, fontProperties, names[j], initialX + indent * j, initialY + lineHeight);
       renderText(textColor, fontProperties, maxResult[j], initialX + indent * j, initialY - histogramHeight - lineHeight);
