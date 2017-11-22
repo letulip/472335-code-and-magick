@@ -1,6 +1,6 @@
 'use strict';
 
-function init() {
+(function() {
   var setup = document.querySelector('.setup');
   var setupSimilar = document.querySelector('.setup-similar')
   var names = ['Иван', 'Хуан Себастьян', 'Мария', 'Кристоф', 'Виктор', 'Юлия', 'Люпита', 'Вашингтон'];
@@ -59,6 +59,4 @@ function init() {
   showBlock(setup);
   fillFragment(createMages());
   showBlock(setupSimilar);
-}
-
-init();
+}());
