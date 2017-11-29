@@ -12,7 +12,8 @@
   var setup = document.querySelector('.setup');
   var setupOpen = document.querySelector('.setup-open');
   var setupClose = setup.querySelector('.setup-close');
-  var userNameInput = setup.addEventListener('invalid', function (evt) {
+  var userNameInput = setup.querySelector('.setup-user-name');
+  userNameInput.addEventListener('invalid', function (evt) {
     if (userNameInput.validity.tooShort) {
       userNameInput.setCustomValidity('Имя должно состоять минимум из 2-х символов');
     } else if (userNameInput.validity.tooLong) {
@@ -23,15 +24,19 @@
       userNameInput.setCustomValidity('');
     }
   });
-
   userNameInput.addEventListener('input', function (evt) {
-  var target = evt.target;
-  if (target.value.length < 2) {
-    target.setCustomValidity('Имя должно состоять минимум из 2-х символов');
-  } else {
-    target.setCustomValidity('');
-  }
-});
+    var target = evt.target;
+    if (target.value.length < 2) {
+      target.setCustomValidity('Имя должно состоять минимум из 2-х символов');
+    } else {
+      target.setCustomValidity('');
+    }
+  });
+  var setupWizard = document.querySelector('.setup-wizard-wrap');
+  var coatColor = setupWizard.querySelector('.wizard-coat');
+  var changeCoatColor = coatColor.addEventListener('click', function(evt) {
+    coatColor.style.fill = getRandomColor(coatColors);
+  });
 
   function showBlock(element) {
     element.classList.remove('hidden');
