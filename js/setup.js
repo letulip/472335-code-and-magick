@@ -25,12 +25,12 @@
 
   function openPopup() {
     setup.classList.remove('hidden');
-    document.addEventListener('keydown', onPopupEscPress);
+    setupClose.addEventListener('keydown', onPopupEscPress);
   };
 
   function closePopup() {
     setup.classList.add('hidden');
-    document.removeEventListener('keydown', onPopupEscPress);
+    setupClose.removeEventListener('keydown', onPopupEscPress);
   };
 
   function Mage(name, coatColor, eyesColor) {
