@@ -18,23 +18,39 @@
   var eyesColorChange = setupWizard.querySelector('.wizard-eyes');
   var setupFireball = document.querySelector('.setup-fireball-wrap');
 
-  function onPopupEscPress(evt) {
-    if (evt.keyCode === ESC_KEYCODE) {
-      closePopup();
-    }
-  }
-
   function openPopup() {
     setup.classList.remove('hidden');
-    setup.addEventListener('keydown', function (evt) {
+    document.addEventListener('keydown', function (evt) {
       if (evt.keyCode === ESC_KEYCODE) {
         closePopup();
       }
     });
-  }
 
-  function closePopup() {
-    setup.classList.add('hidden');
+    setupClose.addEventListener('click', function () {
+      closePopup();
+    });
+
+    setupClose.addEventListener('keydown', function (evt) {
+      if (evt.keyCode === ENTER_KEYCODE) {
+        closePopup();
+      }
+    });
+
+    coatColorChange.addEventListener('click', function () {
+      changeColor(coatColorChange, coatColors);
+    });
+
+    eyesColorChange.addEventListener('click', function () {
+      changeColor(eyesColorChange, eyesColors);
+    });
+
+    setupFireball.addEventListener('click', function () {
+      setupFireball.style.backgroundColor = getRandomColor(fireballColors);
+    });
+
+    function closePopup() {
+      setup.classList.add('hidden');
+    }
   }
 
   function Mage(name, coatColor, eyesColor) {
@@ -95,16 +111,6 @@
     }
   });
 
-  setupClose.addEventListener('click', function () {
-    closePopup();
-  });
-
-  setupClose.addEventListener('keydown', function (evt) {
-    if (evt.keyCode === ENTER_KEYCODE) {
-      closePopup();
-    }
-  });
-
   userNameInput.addEventListener('invalid', function () {
     if (userNameInput.validity.tooShort) {
       userNameInput.setCustomValidity('Имя должно состоять минимум из 2-х символов');
@@ -124,18 +130,6 @@
     } else {
       target.setCustomValidity('');
     }
-  });
-
-  coatColorChange.addEventListener('click', function () {
-    changeColor(coatColorChange, coatColors);
-  });
-
-  eyesColorChange.addEventListener('click', function () {
-    changeColor(eyesColorChange, eyesColors);
-  });
-
-  setupFireball.addEventListener('click', function () {
-    setupFireball.style.backgroundColor = getRandomColor(fireballColors);
   });
 
   fillFragment(createMages());
