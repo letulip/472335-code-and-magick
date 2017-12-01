@@ -20,7 +20,7 @@
   function openPopup() {
     setup.classList.remove('hidden');
     document.addEventListener('keydown', function (evt) {
-      if (evt.keyCode === ESC_KEYCODE) {
+      if (evt.keyCode === ESC_KEYCODE && userNameInput !== document.activeElement) {
         closePopup();
       }
     });
