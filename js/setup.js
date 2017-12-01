@@ -11,7 +11,6 @@
   var fireballColors = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
   var setupOpen = document.querySelector('.setup-open');
   var setupClose = setup.querySelector('.setup-close');
-  var setupWizardForm = setup.querySelector('.setup-wizard-form');
   var userNameInput = setup.querySelector('.setup-user-name');
   var setupWizard = document.querySelector('.setup-wizard-wrap');
   var coatColorChange = setupWizard.querySelector('.wizard-coat');
