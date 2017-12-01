@@ -26,9 +26,7 @@
       }
     });
 
-    setupClose.addEventListener('click', function () {
-      closePopup();
-    });
+    setupClose.addEventListener('click', closePopup);
 
     setupClose.addEventListener('keydown', function (evt) {
       if (evt.keyCode === ENTER_KEYCODE) {
@@ -101,9 +99,7 @@
     similarListElement.appendChild(fragment);
   }
 
-  setupOpen.addEventListener('click', function () {
-    openPopup();
-  });
+  setupOpen.addEventListener('click', openPopup);
 
   setupOpen.addEventListener('keydown', function (evt) {
     if (evt.keyCode === ENTER_KEYCODE) {
