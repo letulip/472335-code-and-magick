@@ -53,7 +53,7 @@ window.renderStatistics = function (ctx, names, times) {
     var step = histogramHeight / (max - 0);
     for (var j = 0; j < times.length; j++) {
       renderText(textColor, fontProperties, names[j], initialX + indent * j, initialY + lineHeight);
-      renderText(textColor, fontProperties, maxResult[j], initialX + indent * j, initialY - histogramHeight - lineHeight);
+      renderText(textColor, fontProperties, maxResult[j], initialX + indent * j, initialY - times[j] * step - lineHeight);
       var chartColor = getChartRandomOpacity();
       if (names[j] === 'Вы') {
         chartColor = playerColor;
