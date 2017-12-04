@@ -1,8 +1,8 @@
 'use strict';
 
 (function () {
-  var ESC_KEYCODE = 27;
-  var ENTER_KEYCODE = 13;
+  // var ESC_KEYCODE = 27;
+  // var ENTER_KEYCODE = 13;
   var setup = document.querySelector('.setup');
   var names = ['Иван', 'Хуан Себастьян', 'Мария', 'Кристоф', 'Виктор', 'Юлия', 'Люпита', 'Вашингтон'];
   var lastnames = ['да Марья', 'Верон', 'Мирабелла', 'Вальц', 'Онопко', 'Топольницкая', 'Нионго', 'Ирвинг'];
@@ -20,17 +20,20 @@
   function openPopup() {
     setup.classList.remove('hidden');
     document.addEventListener('keydown', function (evt) {
-      if (evt.keyCode === ESC_KEYCODE && userNameInput !== document.activeElement) {
+      if (evt.keyCode === window.util.ESC_KEYCODE && userNameInput !== document.activeElement) {
         closePopup();
       }
+      // var condition = (userNameInput !== document.activeElement);
+      // window.util.isEscAndEvent(evt, condition, closePopup);
     });
 
     setupClose.addEventListener('click', closePopup);
 
     setupClose.addEventListener('keydown', function (evt) {
-      if (evt.keyCode === ENTER_KEYCODE) {
-        closePopup();
-      }
+      // if (evt.keyCode === ENTER_KEYCODE) {
+      //   closePopup();
+      // }
+      window.util.isEnterEvent(evt, closePopup);
     });
 
     coatColorChange.addEventListener('click', function () {
@@ -101,9 +104,10 @@
   setupOpen.addEventListener('click', openPopup);
 
   setupOpen.addEventListener('keydown', function (evt) {
-    if (evt.keyCode === ENTER_KEYCODE) {
-      openPopup();
-    }
+    // if (evt.keyCode === ENTER_KEYCODE) {
+    //   openPopup();
+    // }
+    window.util.isEnterEvent(evt, openPopup);
   });
 
   userNameInput.addEventListener('invalid', function () {
