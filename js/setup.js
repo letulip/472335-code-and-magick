@@ -20,11 +20,11 @@
   function openPopup() {
     setup.classList.remove('hidden');
     document.addEventListener('keydown', function (evt) {
-      if (evt.keyCode === window.util.ESC_KEYCODE && userNameInput !== document.activeElement) {
-        closePopup();
-      }
-      // var condition = (userNameInput !== document.activeElement);
-      // window.util.isEscAndEvent(evt, condition, closePopup);
+      // if (evt.keyCode === window.util.ESC_KEYCODE && userNameInput !== document.activeElement) {
+      //   closePopup();
+      // }
+      var condition = (userNameInput !== document.activeElement);
+      window.util.isEscAndEvent(evt, condition, closePopup);
     });
 
     setupClose.addEventListener('click', closePopup);

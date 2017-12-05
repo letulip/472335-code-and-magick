@@ -34,7 +34,7 @@ window.util = (function () {
       }
     },
     isEscAndEvent: function (evt, condition, action) {
-      if (evt.keycode === ESC_KEYCODE && condition) {
+      if (evt.keyCode === ESC_KEYCODE && condition) {
         action();
       }
     },
