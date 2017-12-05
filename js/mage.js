@@ -20,6 +20,18 @@ window.mage = (function () {
       }
       return mages;
     },
+    getNames: function () {
+      return names;
+    },
+    getLastnames: function () {
+      return lastnames;
+    },
+    getEyesColors: function () {
+      return eyesColors;
+    },
+    getCoatColors: function () {
+      return coatColors;
+    },
     getRandomName: function () {
       return names[window.util.getRandomInt(0, names.length)] + ' ' + lastnames[window.util.getRandomInt(0, lastnames.length)];
     },
