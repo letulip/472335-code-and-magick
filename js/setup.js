@@ -1,8 +1,6 @@
 'use strict';
 
 (function () {
-  // var ESC_KEYCODE = 27;
-  // var ENTER_KEYCODE = 13;
   var setup = document.querySelector('.setup');
   var names = ['Иван', 'Хуан Себастьян', 'Мария', 'Кристоф', 'Виктор', 'Юлия', 'Люпита', 'Вашингтон'];
   var lastnames = ['да Марья', 'Верон', 'Мирабелла', 'Вальц', 'Онопко', 'Топольницкая', 'Нионго', 'Ирвинг'];
@@ -20,9 +18,6 @@
   function openPopup() {
     setup.classList.remove('hidden');
     document.addEventListener('keydown', function (evt) {
-      // if (evt.keyCode === window.util.ESC_KEYCODE && userNameInput !== document.activeElement) {
-      //   closePopup();
-      // }
       var condition = (userNameInput !== document.activeElement);
       window.util.isEscAndEvent(evt, condition, closePopup);
     });
@@ -30,9 +25,6 @@
     setupClose.addEventListener('click', closePopup);
 
     setupClose.addEventListener('keydown', function (evt) {
-      // if (evt.keyCode === ENTER_KEYCODE) {
-      //   closePopup();
-      // }
       window.util.isEnterEvent(evt, closePopup);
     });
 
@@ -59,16 +51,16 @@
     this.eyesColor = eyesColor;
   }
 
-  function getRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min)) + min;
-  }
+  // function getRandomInt(min, max) {
+  //   return Math.floor(Math.random() * (max - min)) + min;
+  // }
 
   function getRandomName() {
-    return names[getRandomInt(0, names.length)] + ' ' + lastnames[getRandomInt(0, lastnames.length)];
+    return names[window.util.getRandomInt(0, names.length)] + ' ' + lastnames[window.util.getRandomInt(0, lastnames.length)];
   }
 
   function getRandomColor(colors) {
-    return colors[getRandomInt(0, colors.length)];
+    return colors[window.util.getRandomInt(0, colors.length)];
   }
 
   function changeColor(target, colorsArray) {
