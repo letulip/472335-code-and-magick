@@ -2,7 +2,7 @@
 
 window.createMage = (function () {
   return {
-    createMageElement(mage) {
+    createMageElement: function (mage) {
       var similarWizardTemplate = document.querySelector('#similar-wizard-template').content;
       var wizardElement = similarWizardTemplate.cloneNode(true);
       wizardElement.querySelector('.setup-similar-label').textContent = mage.name;

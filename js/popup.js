@@ -4,7 +4,7 @@ window.popup = (function () {
   var setup = document.querySelector('.setup');
 
   return {
-    openPopup() {
+    openPopup: function () {
       var setupClose = setup.querySelector('.setup-close');
       var setupWizard = document.querySelector('.setup-wizard-wrap');
       var coatColorChange = setupWizard.querySelector('.wizard-coat');
@@ -37,7 +37,7 @@ window.popup = (function () {
         setupFireball.style.backgroundColor = window.mage.getRandomColor(fireballColors);
       });
     },
-    closePopup() {
+    closePopup: function () {
       setup.classList.add('hidden');
     }
   };

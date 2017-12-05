@@ -29,5 +29,5 @@ window.formValidate = (function () {
     getUserNameInput: function () {
       return userNameInput;
     }
-  }
+  };
 })();
