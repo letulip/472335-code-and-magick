@@ -9,5 +9,5 @@
     window.util.isEnterEvent(evt, window.popup.openPopup);
   });
 
-  window.fillTemplateFragment.fillFragment(window.mage.createMages());
+  window.fillFragment(window.mage.createMages());
 }());

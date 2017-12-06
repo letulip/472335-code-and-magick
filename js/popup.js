@@ -2,6 +2,7 @@
 
 window.popup = (function () {
   var setup = document.querySelector('.setup');
+  var userNameInput = setup.querySelector('.setup-user-name');
 
   return {
     openPopup: function () {
@@ -14,7 +15,6 @@ window.popup = (function () {
 
       setup.classList.remove('hidden');
       document.addEventListener('keydown', function (evt) {
-        var userNameInput = window.formValidate.getUserNameInput();
         var condition = (userNameInput !== document.activeElement);
         window.util.isEscAndEvent(evt, condition, window.popup.closePopup);
       });

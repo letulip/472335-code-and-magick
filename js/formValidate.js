@@ -24,10 +24,4 @@ window.formValidate = (function () {
       target.setCustomValidity('');
     }
   });
-
-  return {
-    getUserNameInput: function () {
-      return userNameInput;
-    }
-  };
 })();
