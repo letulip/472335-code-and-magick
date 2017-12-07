@@ -1,6 +1,7 @@
 'use strict';
 
 (function () {
+  var setup = document.querySelector('.setup');
   var setupOpen = document.querySelector('.setup-open');
   var shopElement = document.querySelector('.setup-artifacts-shop');
   var draggedItem = null;
@@ -14,9 +15,14 @@
 
   shopElement.addEventListener('dragstart', function (evt) {
     if (evt.target.tagName.toLowerCase() === 'img') {
-      draggedItem = evt.target;
+      draggedItem = createShopElement();
       evt.dataTransfer.setData('text/plain', evt.target.alt);
+      artifactsElement.style.outline = '2px dashed red';
     }
+  });
+
+  shopElement.addEventListener('dragend', function () {
+    artifactsElement.style.outline = 'none';
   });
 
   artifactsElement.addEventListener('dragover', function (evt) {
@@ -26,10 +32,18 @@
 
   artifactsElement.addEventListener('drop', function (evt) {
     evt.target.style.backgroundColor = '';
+    if (evt.target.contains(draggedItem)) {
+      artifactsElement.style.outline = 'none';
+      return;
+    }
     evt.target.appendChild(draggedItem);
     evt.preventDefault();
+    artifactsElement.style.outline = 'none';
   });
 
+  artifactsElement.addEventListener('dragstart', function () {
+    artifactsElement.style.outline = '2px dashed red';
+  });
 
   artifactsElement.addEventListener('dragenter', function (evt) {
     evt.target.style.backgroundColor = 'yellow';
@@ -40,6 +54,12 @@
     evt.target.style.backgroundColor = '';
     evt.preventDefault();
   });
+
+  function createShopElement() {
+    var shopInnerElement = setup.querySelector('.setup-artifacts-shop .setup-artifacts-cell');
+    var shopArtifact = shopInnerElement.cloneNode(true);
+    return shopArtifact;
+  }
 
   window.fillFragment(window.mage.createMages());
 }());
