@@ -6,6 +6,9 @@ window.popup = (function () {
 
   return {
     openPopup: function () {
+      var setupX = document.body.clientWidth / 2;
+      setup.style.top = '80px';
+      setup.style.left = setupX + 'px';
       var setupClose = setup.querySelector('.setup-close');
       var setupWizard = document.querySelector('.setup-wizard-wrap');
       var coatColorChange = setupWizard.querySelector('.wizard-coat');
