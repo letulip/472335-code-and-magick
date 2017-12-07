@@ -56,7 +56,7 @@
   });
 
   function createShopElement() {
-    var shopInnerElement = setup.querySelector('.setup-artifacts-shop .setup-artifacts-cell');
+    var shopInnerElement = setup.querySelector('.setup-artifacts-shop .setup-artifacts-cell img');
     var shopArtifact = shopInnerElement.cloneNode(true);
     return shopArtifact;
   }
