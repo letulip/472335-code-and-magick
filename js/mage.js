@@ -38,9 +38,6 @@ window.mage = (function () {
     getRandomColor: function (colors) {
       return colors[window.util.getRandomInt(0, colors.length)];
     },
-    // changeColor: function (target, colorsArray) {
-    //   target.style.fill = window.mage.getRandomColor(colorsArray);
-    // },
     changeColor: function (target, color) {
       target.style.fill = color;
     },
