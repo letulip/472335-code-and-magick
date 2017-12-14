@@ -22,6 +22,12 @@ window.util = (function () {
     },
     getRandomInt: function (min, max) {
       return Math.floor(Math.random() * (max - min)) + min;
+    },
+    onError: function (message) {
+      alert.error(message);
+    },
+    onSuccess: function (data) {
+      alert.log(data);
     }
   };
 })();
