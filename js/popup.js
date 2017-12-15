@@ -2,6 +2,7 @@
 
 window.popup = (function () {
   var setup = document.querySelector('.setup');
+  var setupSimilar = document.querySelector('.setup-similar');
   var userNameInput = setup.querySelector('.setup-user-name');
 
   return {
@@ -21,6 +22,7 @@ window.popup = (function () {
       var eyes = document.querySelector('#wizard-eyes');
 
       setup.classList.remove('hidden');
+      setupSimilar.classList.remove('hidden');
       document.addEventListener('keydown', function (evt) {
         var condition = (userNameInput !== document.activeElement);
         window.util.isEscAndEvent(evt, condition, window.popup.closePopup);
