@@ -2,13 +2,14 @@
 
 (function () {
   var SERVER_URL = 'https://1510.dump.academy/code-and-magick';
+  var SERVER_OK = 200;
 
   var setup = function (onLoad, onError) {
     var xhr = new XMLHttpRequest();
     xhr.responseType = 'json';
 
     xhr.addEventListener('load', function () {
-      if (xhr.status === 200) {
+      if (xhr.status === SERVER_OK) {
         onLoad(xhr.response);
       } else {
         onError(xhr.response);
