@@ -62,5 +62,5 @@
     return shopArtifact;
   }
 
-  window.saveLoad();
+  // window.saveLoad();
 }());
