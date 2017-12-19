@@ -9,12 +9,12 @@
 
   window.wizard.onEyesChange = function (color) {
     eyesColor = color;
-    updateWizards();
+    window.util.debounce(updateWizards);
   };
 
   window.wizard.onCoatChange = function (color) {
     coatColor = color;
-    updateWizards();
+    window.util.debounce(updateWizards);
   };
 
   function updateWizards() {

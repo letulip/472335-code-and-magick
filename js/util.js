@@ -22,6 +22,9 @@ window.util = (function () {
     },
     getRandomInt: function (min, max) {
       return Math.floor(Math.random() * (max - min)) + min;
+    },
+    debounce: function (func) {
+      setTimeout(func, 500);
     }
   };
 })();
