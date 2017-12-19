@@ -61,6 +61,4 @@
     var shopArtifact = shopInnerElement.cloneNode(true);
     return shopArtifact;
   }
-
-  // window.saveLoad();
 }());
